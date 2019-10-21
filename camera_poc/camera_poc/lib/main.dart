@@ -35,11 +35,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future getImage() async {
     var image = await ImagePicker.pickImage(source: ImageSource.camera);
-
     setState(() {
       _image = image;
-    });
-  }
+  });
+}
   
 
   @override
@@ -54,8 +53,9 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Center(
               child: _image == null
-                  ? Text("Imagem null") :
-                  Image.file(_image),
+                  ?
+              Text("Imagem null") :
+              Image.file(_image),
             )
            
           ],
@@ -73,12 +73,20 @@ class _MyHomePageState extends State<MyHomePage> {
     var picture = await ImagePicker.pickImage(
       source: ImageSource.camera,
     );
+    setState(() {
+      _image = picture;
+    });
+
+
   }
 
   void openGallery()async{
     var gallery = await ImagePicker.pickImage(
       source: ImageSource.gallery,
     );
+    setState(() {
+      _image = gallery;
+    });
 
   }
 

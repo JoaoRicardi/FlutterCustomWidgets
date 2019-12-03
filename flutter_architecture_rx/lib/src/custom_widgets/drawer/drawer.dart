@@ -7,8 +7,9 @@ import 'package:provider/provider.dart';
 class CustomDrawer extends StatelessWidget {
 
   final DrawerBloc drawerBloc;
+  final AnimationController controller;
 
-  const CustomDrawer({Key key, this.drawerBloc}) : super(key: key);
+  const CustomDrawer({Key key, this.drawerBloc,this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,7 @@ class CustomDrawer extends StatelessWidget {
              builder: (context, snapshot) {
                return ListItemDrawer(
                  onPress:() {
+                   drawerBloc.toggle(controller,i:0);
                    /*drawerBloc.navigateTo(
                      page: nome da pagina,
                      context: context,
@@ -48,6 +50,7 @@ class CustomDrawer extends StatelessWidget {
                return ListItemDrawer(
                  isClosed: snapshot.data,
                  onPress:()  {
+                   drawerBloc.toggle(controller,i: 1);
                    /*drawerBloc.navigateTo(
                      page: nome da pagina,
                      context: context,
@@ -68,6 +71,7 @@ class CustomDrawer extends StatelessWidget {
                return ListItemDrawer(
                  isClosed: snapshot.data,
                  onPress:()  {
+                   drawerBloc.toggle(controller,i: 2);
                    /*drawerBloc.navigateTo(
                      page: nome da pagina,
                      context: context,

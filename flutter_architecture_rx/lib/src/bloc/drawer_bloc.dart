@@ -11,15 +11,18 @@ class DrawerBloc extends BlocBase {
     _isClosed.sink.add(!_isClosed.value);
   }*/
 
-  void toggle(AnimationController controller){
+  void toggle(AnimationController controller,{int i}){
     if(controller.status.toString() == 'AnimationStatus.dismissed' || controller.status.toString() == 'AnimationStatus.forward' ){
       controller.forward();
+
       _isClosed.sink.add(!_isClosed.value);
     }else{
       controller.reverse();
       _isClosed.sink.add(!_isClosed.value);
     }
-
+    if(i != null){
+      setSelected(i);
+    }
   }
 
 

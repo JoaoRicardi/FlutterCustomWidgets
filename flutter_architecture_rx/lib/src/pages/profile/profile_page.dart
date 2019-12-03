@@ -60,6 +60,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
     return Stack(
       children: <Widget>[
         CustomDrawer(
+          controller: controller,
           drawerBloc: drawerBloc,
         ),
         CustomDrawerContainer(

@@ -6,10 +6,12 @@ import 'package:provider/provider.dart';
 
 class CustomDrawer extends StatelessWidget {
 
+  final DrawerBloc drawerBloc;
+
+  const CustomDrawer({Key key, this.drawerBloc}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-
-    final _drawerBloc =  Provider.of<DrawerBloc>(context);
   
     return Material(
       child: Container(
@@ -21,53 +23,62 @@ class CustomDrawer extends StatelessWidget {
         child: Stack(
           children: <Widget>[
            StreamBuilder<bool>(
-             stream: _drawerBloc.isClosed,
+             stream: drawerBloc.isClosed,
              builder: (context, snapshot) {
                return ListItemDrawer(
-                 onPress:() => _drawerBloc.navigateTo(
-                     page: null,
+                 onPress:() {
+                   /*drawerBloc.navigateTo(
+                     page: nome da pagina,
                      context: context,
-                     i: 0
-                 ),
+                     i: posicao
+                   )*/
+                   print('navegar');
+                 },
                  isClosed: snapshot.data,
-                 nome: 'Contas',
+                 nome: 'Nome da pagina',
                  valor: -90,
                  comparativo: 0,
-                 stream: _drawerBloc.selected,
+                 stream: drawerBloc.selected,
                );
              }
            ),
            StreamBuilder<bool>(
-             stream: _drawerBloc.isClosed,
+             stream: drawerBloc.isClosed,
              builder: (context, snapshot) {
                return ListItemDrawer(
                  isClosed: snapshot.data,
-                 onPress:() => _drawerBloc.navigateTo(
-                     page: null,
+                 onPress:()  {
+                   /*drawerBloc.navigateTo(
+                     page: nome da pagina,
                      context: context,
-                     i: 1
-                 ),
+                     i: posicao
+                   )*/
+                   print('navegar');
+                 },
                  nome: 'Nome da pagina',
                  valor: 0,
                  comparativo: 1,
-                 stream: _drawerBloc.selected,
+                 stream: drawerBloc.selected,
                );
              }
            ),
            StreamBuilder<bool>(
-             stream: _drawerBloc.isClosed,
+             stream: drawerBloc.isClosed,
              builder: (context, snapshot) {
                return ListItemDrawer(
                  isClosed: snapshot.data,
-                 onPress:() => _drawerBloc.navigateTo(
-                     page: null,//Uma pagina
+                 onPress:()  {
+                   /*drawerBloc.navigateTo(
+                     page: nome da pagina,
                      context: context,
-                     i: 2
-                 ),
+                     i: posicao
+                   )*/
+                   print('navegar');
+                 },
                  nome: 'Nome da pagina',
                  valor: 90,
                  comparativo: 2,
-                 stream: _drawerBloc.selected,
+                 stream: drawerBloc.selected,
                );
              }
            )

@@ -7,9 +7,21 @@ class DrawerBloc extends BlocBase {
 
   final _isClosed = BehaviorSubject<bool>.seeded(true);
   Observable<bool>get isClosed => _isClosed.stream;
-  void toggle(){
+  /*void toggle(){
     _isClosed.sink.add(!_isClosed.value);
+  }*/
+
+  void toggle(AnimationController controller){
+    if(controller.status.toString() == 'AnimationStatus.dismissed' || controller.status.toString() == 'AnimationStatus.forward' ){
+      controller.forward();
+      _isClosed.sink.add(!_isClosed.value);
+    }else{
+      controller.reverse();
+      _isClosed.sink.add(!_isClosed.value);
+    }
+
   }
+
 
   final _selected = BehaviorSubject<int>.seeded(0);
   Observable<int>get selected => _selected.stream;
@@ -19,12 +31,14 @@ class DrawerBloc extends BlocBase {
   }
 
   void navigateTo({Widget page,int i,BuildContext context}){
-    toggle();
+    //toggle();
     setSelected(i);
     Navigator.push(context, NavSlideFromRight(
       page: page
     ));
   }
+
+
 
 
   @override

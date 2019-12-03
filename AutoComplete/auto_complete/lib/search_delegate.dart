@@ -4,12 +4,6 @@ import 'package:flutter/material.dart';
 
 class ListDelgate extends SearchDelegate<String>{
 
-  //TODO
-  //Se quiser filtrar alguma lista mandar ela como parametro
-  // final List<items> listaParaFiltrar;
-
-  //ListDelgate({}this.listaParaFiltrar)
-
 
 
   @override

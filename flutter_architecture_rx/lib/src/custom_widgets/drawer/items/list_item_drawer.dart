@@ -42,7 +42,7 @@ class ListItemDrawer extends StatelessWidget {
                       style: TextStyle(          
                       fontFamily: 'NotoSerif',
                       color: colors.accentColor,
-                      fontSize: 32
+                      fontSize: 20
                       )
                     ), 
                   ],

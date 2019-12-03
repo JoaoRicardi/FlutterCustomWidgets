@@ -47,7 +47,6 @@ class CalendarHelper {
     
     Modal.show(
       context,
-      titleBold: true,
       title: 'Selecione o calendário',
       body: Container(
         width: 300,

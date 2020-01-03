@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Center(
               child: _image == null
                   ?
-              Text("Imagem null") :
+              Text("Joao") :
               Image.file(_image),
             )
            
@@ -97,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
             content: new SingleChildScrollView(
               child: new ListBody(
                 children: <Widget>[
-                  GestureDetector(
+                  InkWell(
                     child: new Text('Take a picture'),
                     onTap: openCamera,
                   ),

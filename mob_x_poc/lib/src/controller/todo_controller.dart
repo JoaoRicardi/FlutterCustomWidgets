@@ -1,6 +1,3 @@
-import 'dart:async';
-import 'dart:io';
-
 import 'package:mobx/mobx.dart';
 
 class TodoController{
@@ -17,11 +14,15 @@ class TodoController{
   }
 
   void _addTodo() async {
-    todoLoading.value = true;
-    var list = [];
-    list.add(todoItem.value);
-    todos.value = todos.value + list;
-    todoLoading.value = false;
+   if(todoItem.value == ' ' || todoItem.value.length == 0){
+      //display snackbar ou toast
+   }else{
+     todoLoading.value = true;
+     var list = [];
+     list.add(todoItem.value);
+     todos.value = todos.value + list;
+     todoLoading.value = false;
+   }
 
 
   }

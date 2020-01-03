@@ -20,7 +20,7 @@ class TodoList extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: <Widget>[
-                editTextInput(controller: controller),
+                editTextInput(controller: controller,todoController: todoController),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
@@ -55,7 +55,6 @@ class TodoList extends StatelessWidget {
                       child: RaisedButton(
                         child: Text('Add todo item'),
                         onPressed: (){
-                          todoController.todoItem.value =  controller.text;
                           todoController.addTodo();
                           controller.text= '';
                         },
@@ -77,11 +76,11 @@ class TodoList extends StatelessWidget {
     );
   }
 
-  Widget editTextInput({TextEditingController controller}) {
+  Widget editTextInput({TextEditingController controller,TodoController todoController}) {
     return  TextField(
       controller: controller,
       onChanged: (value) {
-        value = controller.text ;
+        todoController.todoItem.value = value;
       },
       maxLines: 1,
       decoration: InputDecoration(

@@ -13,6 +13,7 @@ class TodoController{
   void _addTodo() {
    var list = [];
 
+   print(todoItem.value);
    list.add(todoItem.value);
 
    todos.value = todos.value + list;

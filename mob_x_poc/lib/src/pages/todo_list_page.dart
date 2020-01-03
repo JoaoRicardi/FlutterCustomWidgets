@@ -23,13 +23,20 @@ class TodoList extends StatelessWidget {
                 editTextInput(controller: controller,todoController: todoController),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(
+                  child:
+                  Container(
                     width: MediaQuery.of(context).size.width,
                     height: 300,
-                    child: ListView.builder(
+                    child:todoController.todoLoading.value == true
+                        ?
+                    Center(
+                      child: CircularProgressIndicator(
+                      ),
+                    )
+                        :
+                    ListView.builder(
                         itemCount: todoController.todos.value.length,
                         itemBuilder: (context, index){
-                          print(todoController.todos.value.length);
                           final obj = todoController.todos.value[index];
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
